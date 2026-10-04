@@ -1,5 +1,11 @@
 # Harmaline
 
+<div align="center">
+
+<a href="https://kagerou.glass/get/harmaline?from=readme"><img src=".github/download.svg" alt="Download Harmaline for Mac" width="360" height="80"></a><br><sub>A disk image without notarization: allow the first launch in System Settings → Privacy &amp; Security · free and open source (MIT)</sub>
+
+</div>
+
 Fixes the black screen bug after disconnecting from macOS Screen Sharing in High Performance mode.
 
 ## The Problem
@@ -14,7 +20,9 @@ This is a [widely reported](https://discussions.apple.com/thread/255783743), unf
 
 ### App
 
-Download from Releases or build the app from source:
+**[Download Harmaline.dmg](https://kagerou.glass/get/harmaline?from=readme)** or build the app from source. The
+app is not notarized, so macOS blocks the first launch: allow it under **System Settings → Privacy & Security →
+Open Anyway**, or run `xattr -cr /Applications/Harmaline.app`. To build it:
 
 ```bash
 git clone https://github.com/kirie/harmaline.git
