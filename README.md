@@ -6,66 +6,25 @@ Harmaline restores a MacBook’s backlight when disconnecting from High Performa
 
 <img src=".github/harmaline-window.png" alt="Harmaline’s daemon setup window" width="420">
 
-**Archived:** this repository is retained for reference.
+## Highlights
 
-## Install
+- Recover the MacBook backlight after a High Performance Screen Sharing session ends.
+- Restore brightness-key behavior without a forced shutdown.
+- Keep recovery active after the setup app closes.
 
-### App
+<details>
+<summary>Full feature list</summary>
 
-**[Download Harmaline.dmg](https://kagerou.glass/get/harmaline?from=readme)** or build the app from source. For the first launch, use **System Settings → Privacy & Security →
-Open Anyway**, or run `xattr -cr /Applications/Harmaline.app`. To build it:
+- Background detection of Screen Sharing session endings.
+- Backlight and brightness-key restoration.
+- Menu-bar app for enabling or disabling the daemon.
+- CLI installation, `--status` diagnostics, and `--fix` recovery.
+- Structured logs at `/Library/Logs/Harmaline.log` and unified logging under `glass.kagerou.harmaline`.
 
-```bash
-git clone https://github.com/kageroumado/harmaline.git
-cd harmaline
-Scripts/build-app.sh
-```
-This builds `Harmaline.app` in `.build/`. 
+</details>
 
-Open it and click **Enable** — you'll be prompted for your admin password to install the background daemon.
+## Notes
 
-The app is only needed for enabling/disabling the daemon. Once enabled, the daemon runs independently in the background and persists across reboots. You can quit or delete the app.
-
-### CLI Only
-
-```bash
-git clone https://github.com/kageroumado/harmaline.git
-cd harmaline
-sudo Scripts/install.sh
-```
-
-## Uninstall
-
-**Via app:** Open Harmaline and click **Disable**.
-
-**Via CLI:**
-```bash
-sudo Scripts/uninstall.sh
-```
-
-## Emergency Fix
-
-If your screen is black right now:
-
-```bash
-# SSH into the Mac, then:
-swift build -c release
-sudo .build/release/harmaline --fix
-```
-
-Or check the current display state:
-```bash
-sudo .build/release/harmaline --status
-```
-
-## Logs
-
-- **Structured log**: `/Library/Logs/Harmaline.log`
-- **Unified logging**: `log show --predicate 'subsystem == "glass.kagerou.harmaline"'`
-
-## Requirements
-
-- macOS 14 (Sonoma) or later
-- Apple Silicon Mac with built-in display
-
-[Detection and recovery internals](REFERENCE.md).
+- Archived · macOS 14+ · Apple silicon Mac with a built-in display · administrator approval for the daemon.
+- Build the app with `Scripts/build-app.sh`; daemon installation/uninstallation uses `Scripts/install.sh` and `Scripts/uninstall.sh`.
+- [Detection and recovery reference](REFERENCE.md).
