@@ -2,6 +2,8 @@
 
 Harmaline restores a MacBook’s backlight when disconnecting from High Performance Screen Sharing leaves it black. A background daemon detects the session ending and restores brightness and brightness-key behavior, avoiding a forced shutdown.
 
+<a href="https://kagerou.glass/get/harmaline?from=readme"><img src=".github/download.svg" alt="Download Harmaline for Mac" width="360" height="80"></a>
+
 <img src=".github/harmaline-window.png" alt="Harmaline’s daemon setup window" width="420">
 
 **Archived:** this repository is retained for reference.
